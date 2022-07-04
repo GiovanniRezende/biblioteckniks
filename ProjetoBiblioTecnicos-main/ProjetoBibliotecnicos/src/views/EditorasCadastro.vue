@@ -20,8 +20,10 @@ export default {
         const novo_id = uuidv4();
         this.Autores.push({
           id: novo_id,
-          nome: this.novo_autor,
+          nome: this.novo_autor,    
           nasc: this.autor_nasc,
+          nacionalidade: this.nacionalidade_editora
+
         });
         this.novo_autor = "";
       }
@@ -36,7 +38,7 @@ export default {
 <template>
   <div class="container">
     <div class="title">
-      <h2>Gerenciamento de Autores</h2>
+      <h2>Gerenciamento de Editoras</h2>
     </div>
     <div class="form-input">
       <input
@@ -52,12 +54,12 @@ export default {
      <select
       class="form-select"
       aria-label="Default select example"
-      v-model="categoria_livro"
+      v-model="nacionalidade_editora"
     >
-      <option selected>Categoria</option>
-      <option value="Romance">Romance</option>
-      <option value="Ação">Ação</option>
-      <option value="Biografia">Biografia</option>
+      <option selected>Nacionalidade</option>
+      <option value="Brasileira">Brasileira</option>
+      <option value="Russa">Russa</option>
+      <option value="Norte Americana">Norte Americana</option>
     </select>    
   </div>
   
@@ -66,7 +68,8 @@ export default {
     <div class="BoxLivro" v-for="Autor in Autores" :key="Autor.id">
       <div>ID: {{ Autor.id }}</div>
       <div>Nome: {{ Autor.nome }}</div>
-      <div>Data de Nascimento: {{ Autor.nasc }}</div>
+      <div>Nacionalidade: {{ nacionalidade_editora}}</div>
+      <div>Data de criação: {{ Autor.nasc }}</div>
       <button class="BtnEdit">Editar</button>
       <button class="BtnEdit" @click="excluir(Autor)">Excluir</button>
     </div>

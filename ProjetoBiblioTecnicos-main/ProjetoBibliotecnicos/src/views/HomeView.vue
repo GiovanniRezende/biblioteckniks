@@ -20,7 +20,8 @@ export default {
           id: novo_id,
           nome: this.novo_livro,
           autor: this.livro_autor,
-          data: this.livro_data
+          data: this.livro_data,
+          categoria: this.categoria_livro
       });
       this.novo_livro = "";
       }
@@ -38,13 +39,33 @@ export default {
       <h2>Gerenciamento de Livros</h2>
     </div>
     <div class="form-input">
-      <input class="LivroInput" placeholder="Nome:" type="text" v-model="novo_livro" />
-      <br>
-      <input class="LivroInput" placeholder="Autor:" type="text" v-model="livro_autor" />
-      <br>
+      <input
+        class="LivroInput"
+        placeholder="Nome:"
+        type="text"
+        v-model="novo_livro"
+      />
+      <br />
+      <input
+        class="LivroInput"
+        placeholder="Autor:"
+        type="text"
+        v-model="livro_autor"
+      />
+      <br />
       <input class="LivroInput" type="date" v-model="livro_data" />
       <button class="BtnSalvar" @click="salvar">Salvar</button>
     </div>
+    <select
+      class="form-select"
+      aria-label="Default select example"
+      v-model="categoria_livro"
+    >
+      <option selected>Categoria</option>
+      <option value="Romance">Romance</option>
+      <option value="Ação">Ação</option>
+      <option value="Biografia">Biografia</option>
+    </select>
   </div>
 
   <div class="LivroWrapper">
@@ -53,6 +74,7 @@ export default {
       <div>Nome: {{ Livros.nome }}</div>
       <div>Autor: {{ Livros.autor }}</div>
       <div>Data: {{ Livros.data }}</div>
+      <div>Categoria: {{ Livros.categoria }}</div>
       <button class="BtnEdit">Editar</button>
       <button class="BtnEdit" @click="excluir(Livros)">Excluir</button>
     </div>
@@ -70,20 +92,20 @@ export default {
   padding: 1rem;
   margin-bottom: 1vh;
 }
-.container{
+.container {
   margin: 10px;
-  margin-left: 10px
+  margin-left: 10px;
 }
-.LivroInput{
+.LivroInput {
   margin-right: 10px;
   margin-bottom: 10px;
-  outline: 1px solid black ;
-  border-radius: 1px ;
+  outline: 1px solid black;
+  border-radius: 1px;
 }
-.BtnSalvar{
+.BtnSalvar {
   margin-left: 0.45vh;
 }
-.BtnEdit{
+.BtnEdit {
   margin-right: 3px;
   margin-top: 3px;
 }

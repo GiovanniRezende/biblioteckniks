@@ -8,8 +8,9 @@ import { RouterLink, RouterView } from "vue-router";
       <RouterLink to="/">Home</RouterLink>
       <RouterLink to="/about">About</RouterLink>
       <RouterLink to="/autores">Autores</RouterLink>
+      <RouterLink to="/editoras">Editoras</RouterLink>
 
-      <img src="@\components\icons\livroicon.png" class="LivroIco">
+      <img src="@\components\icons\livroicon.png" class="LivroIco" />
     </nav>
   </header>
 
@@ -19,7 +20,7 @@ import { RouterLink, RouterView } from "vue-router";
 
 <style>
 @import "@/assets/base.css";
-.LivroIco{
+.LivroIco {
   height: 2em;
   float: right;
   margin-right: 1em;
@@ -30,7 +31,6 @@ import { RouterLink, RouterView } from "vue-router";
   padding: 1vh;
   box-shadow: 1px 1px 5px black;
   background-color: white;
-  
 }
 header {
   line-height: 1.5;
@@ -68,5 +68,4 @@ nav a {
 nav a:first-of-type {
   border: 0;
 }
-
 </style>
